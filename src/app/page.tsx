@@ -47,7 +47,7 @@ export default function ZolderScanner() {
   const [results, setResults] = useState<ScanResult[]>([]);
   const [preview, setPreview] = useState<string | null>(null);
   const [scanProgress, setScanProgress] = useState(0);
-  const [useAI, setUseAI] = useState(false);
+  const [useAI] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -189,6 +189,10 @@ export default function ZolderScanner() {
           0% { transform: translate(0, 0) rotate(0deg); }
           50% { transform: translate(-20px, 15px) rotate(1deg); }
           100% { transform: translate(0, 0) rotate(0deg); }
+        }
+        @keyframes live-pulse {
+          0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+          50% { opacity: 0.8; transform: scale(1.15); box-shadow: 0 0 0 6px rgba(34,197,94,0); }
         }
       `}</style>
 
@@ -340,63 +344,48 @@ export default function ZolderScanner() {
               schat de waarde en schrijft direct een Marktplaats-advertentie.
             </p>
 
-            {/* Mode toggle */}
+            {/* AI Vision indicator */}
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 marginBottom: 28,
-                gap: 8,
-                alignItems: "center",
               }}
             >
-              <span
-                style={{
-                  fontSize: 13,
-                  color: "rgba(255,255,255,0.4)",
-                  fontFamily: "'DM Mono', monospace",
-                }}
-              >
-                Demo
-              </span>
               <div
-                onClick={() => setUseAI(!useAI)}
                 style={{
-                  width: 48,
-                  height: 26,
-                  borderRadius: 13,
-                  cursor: "pointer",
-                  background: useAI
-                    ? "#22c55e"
-                    : "rgba(255,255,255,0.15)",
-                  position: "relative",
-                  transition: "background 0.3s",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 10,
+                  background: "rgba(34,197,94,0.08)",
+                  border: "1px solid rgba(34,197,94,0.25)",
+                  borderRadius: 100,
+                  padding: "8px 20px",
                 }}
               >
-                <div
+                <span
                   style={{
-                    width: 20,
-                    height: 20,
+                    width: 9,
+                    height: 9,
                     borderRadius: "50%",
-                    background: "#fff",
-                    position: "absolute",
-                    top: 3,
-                    left: useAI ? 25 : 3,
-                    transition: "left 0.3s",
-                    boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
+                    background: "#22c55e",
+                    display: "inline-block",
+                    animation: "live-pulse 1.8s ease-in-out infinite",
                   }}
                 />
+                <span
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 600,
+                    letterSpacing: 1.5,
+                    color: "#86efac",
+                    textTransform: "uppercase",
+                    fontFamily: "'DM Mono', monospace",
+                  }}
+                >
+                  AI Vision Actief
+                </span>
               </div>
-              <span
-                style={{
-                  fontSize: 13,
-                  color: useAI ? "#22c55e" : "rgba(255,255,255,0.4)",
-                  fontWeight: useAI ? 600 : 400,
-                  fontFamily: "'DM Mono', monospace",
-                }}
-              >
-                AI Vision
-              </span>
             </div>
 
             {/* Upload area */}
