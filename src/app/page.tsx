@@ -3,6 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import ScanParticles from "@/components/ScanParticles";
 import ResultCard from "@/components/ResultCard";
+import HeroIllustration from "@/components/HeroIllustration";
 
 interface ScanResult {
   object_naam: string;
@@ -194,20 +195,29 @@ export default function ZolderScanner() {
         {stage === "hero" && (
           <div style={{ animation: "float-up 0.8s ease-out" }}>
 
-            {/* Hero tekst */}
-            <div style={{ textAlign: "center", marginBottom: 40 }}>
-              <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: 2, color: t.green, textTransform: "uppercase", marginBottom: 16, fontFamily: "'DM Mono', monospace" }}>
-                AI-Powered Taxatie
+            {/* Hero tekst + illustratie */}
+            <div style={{ display: "flex", alignItems: "center", gap: 32, marginBottom: 40, flexWrap: "wrap" }}>
+              {/* Illustratie */}
+              <div style={{ flexShrink: 0, width: "min(260px, 42vw)" }}>
+                <HeroIllustration isDark={isDark} />
               </div>
-              <h1 style={{ fontSize: "clamp(28px,5vw,48px)", fontWeight: 800, lineHeight: 1.1, margin: "0 0 16px", letterSpacing: -1.5, color: t.textPrimary }}>
-                Ontdek de verborgen<br />
-                <span style={{ background: "linear-gradient(135deg,#22c55e,#4ade80,#22d3ee)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  waarde op je zolder
-                </span>
-              </h1>
-              <p style={{ fontSize: 16, color: t.textSecondary, maxWidth: 480, margin: "0 auto", lineHeight: 1.6, fontWeight: 300 }}>
-                Kies een categorie, upload tot 4 foto&apos;s en laat de AI taxeren en advertenties schrijven.
-              </p>
+
+              {/* Tekst */}
+              <div style={{ flex: 1, minWidth: 220 }}>
+                <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: 2, color: t.green, textTransform: "uppercase", marginBottom: 14, fontFamily: "'DM Mono', monospace" }}>
+                  AI-Powered Taxatie
+                </div>
+                <h1 style={{ fontSize: "clamp(24px,4vw,44px)", fontWeight: 800, lineHeight: 1.1, margin: "0 0 16px", letterSpacing: -1.5, color: t.textPrimary }}>
+                  Ontdek de verborgen
+                  <br />
+                  <span style={{ background: "linear-gradient(135deg,#22c55e,#4ade80,#22d3ee)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                    waarde op je zolder
+                  </span>
+                </h1>
+                <p style={{ fontSize: 15, color: t.textSecondary, lineHeight: 1.65, fontWeight: 300, margin: 0 }}>
+                  Kies een categorie, upload tot 4 foto&apos;s en laat de AI taxeren en kant-en-klare advertenties schrijven.
+                </p>
+              </div>
             </div>
 
             {/* Scan teller banner */}
