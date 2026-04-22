@@ -36,31 +36,31 @@ const PLATFORMS: Record<string, Platform[]> = {
   kunst: [
     { naam: "Marktplaats", icon: "🏠", url: "https://www.marktplaats.nl/advertentie/plaatsen.html", kleur: "#d97706" },
     { naam: "eBay",        icon: "🛒", url: "https://www.ebay.nl/sell",                             kleur: "#2563eb" },
-    { naam: "2dehands",    icon: "♻️", url: "https://www.2dehands.be/advertentie/plaatsen/",        kleur: "#7c3aed" },
+    { naam: "2dehands",    icon: "♻️", url: "https://link.2dehands.be/link/placead/start",        kleur: "#7c3aed" },
   ],
   elektronica: [
     { naam: "Marktplaats", icon: "🏠", url: "https://www.marktplaats.nl/advertentie/plaatsen.html", kleur: "#d97706" },
     { naam: "eBay",        icon: "🛒", url: "https://www.ebay.nl/sell",                             kleur: "#2563eb" },
-    { naam: "2dehands",    icon: "♻️", url: "https://www.2dehands.be/advertentie/plaatsen/",        kleur: "#7c3aed" },
+    { naam: "2dehands",    icon: "♻️", url: "https://link.2dehands.be/link/placead/start",        kleur: "#7c3aed" },
   ],
   meubels: [
     { naam: "Marktplaats",       icon: "🏠", url: "https://www.marktplaats.nl/advertentie/plaatsen.html", kleur: "#d97706" },
-    { naam: "2dehands",          icon: "♻️", url: "https://www.2dehands.be/advertentie/plaatsen/",        kleur: "#7c3aed" },
+    { naam: "2dehands",          icon: "♻️", url: "https://link.2dehands.be/link/placead/start",        kleur: "#7c3aed" },
     { naam: "Facebook",          icon: "📘", url: "https://www.facebook.com/marketplace/create",          kleur: "#1d4ed8" },
   ],
   speelgoed: [
     { naam: "Marktplaats", icon: "🏠", url: "https://www.marktplaats.nl/advertentie/plaatsen.html", kleur: "#d97706" },
     { naam: "eBay",        icon: "🛒", url: "https://www.ebay.nl/sell",                             kleur: "#2563eb" },
-    { naam: "2dehands",    icon: "♻️", url: "https://www.2dehands.be/advertentie/plaatsen/",        kleur: "#7c3aed" },
+    { naam: "2dehands",    icon: "♻️", url: "https://link.2dehands.be/link/placead/start",        kleur: "#7c3aed" },
   ],
   kleding: [
     { naam: "Marktplaats", icon: "🏠", url: "https://www.marktplaats.nl/advertentie/plaatsen.html", kleur: "#d97706" },
     { naam: "Vinted",      icon: "👗", url: "https://www.vinted.nl/sell",                           kleur: "#09b1ba" },
-    { naam: "2dehands",    icon: "♻️", url: "https://www.2dehands.be/advertentie/plaatsen/",        kleur: "#7c3aed" },
+    { naam: "2dehands",    icon: "♻️", url: "https://link.2dehands.be/link/placead/start",        kleur: "#7c3aed" },
   ],
   overig: [
     { naam: "Marktplaats", icon: "🏠", url: "https://www.marktplaats.nl/advertentie/plaatsen.html", kleur: "#d97706" },
-    { naam: "2dehands",    icon: "♻️", url: "https://www.2dehands.be/advertentie/plaatsen/",        kleur: "#7c3aed" },
+    { naam: "2dehands",    icon: "♻️", url: "https://link.2dehands.be/link/placead/start",        kleur: "#7c3aed" },
     { naam: "Facebook",    icon: "📘", url: "https://www.facebook.com/marketplace/create",          kleur: "#1d4ed8" },
   ],
 };
