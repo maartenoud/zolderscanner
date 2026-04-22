@@ -364,7 +364,7 @@ export default function ZolderScanner() {
             {/* Result cards */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(min(100%,380px),1fr))", gap: 16, marginBottom: 32 }}>
               {results.map((item, i) => (
-                <ResultCard key={i} item={item} index={i} theme={buildTheme(isDark)} />
+                <ResultCard key={i} item={item} index={i} theme={buildTheme(isDark)} category={category ?? "overig"} />
               ))}
             </div>
 
