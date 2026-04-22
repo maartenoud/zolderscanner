@@ -17,6 +17,23 @@ export default function ResultCard({
   index: number;
 }) {
   const [visible, setVisible] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [geplaatst, setGeplaatst] = useState(false);
+
+  const handleKopieer = async () => {
+    const text = `${item.object_naam}\n\n${item.advertentie_tekst}\n\nPrijs: €${item.geschatte_prijs}`;
+    await navigator.clipboard?.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handlePlaats = async () => {
+    const text = `${item.object_naam}\n\n${item.advertentie_tekst}\n\nPrijs: €${item.geschatte_prijs}`;
+    await navigator.clipboard?.writeText(text);
+    setGeplaatst(true);
+    setTimeout(() => setGeplaatst(false), 3000);
+    window.open("https://www.marktplaats.nl/plaatsen", "_blank");
+  };
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), index * 200);
@@ -126,10 +143,7 @@ export default function ResultCard({
 
       <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
         <button
-          onClick={() => {
-            const text = `${item.object_naam}\n\n${item.advertentie_tekst}\n\nPrijs: €${item.geschatte_prijs}`;
-            navigator.clipboard?.writeText(text);
-          }}
+          onClick={handleKopieer}
           style={{
             flex: 1,
             padding: "10px 0",
@@ -150,21 +164,22 @@ export default function ResultCard({
             ((e.target as HTMLElement).style.transform = "scale(1)")
           }
         >
-          📋 Kopieer advertentie
+          {copied ? "✓ Gekopieerd!" : "📋 Kopieer advertentie"}
         </button>
         <button
+          onClick={handlePlaats}
           style={{
             flex: 1,
             padding: "10px 0",
             borderRadius: 10,
-            background: "rgba(255,255,255,0.08)",
-            border: "1px solid rgba(255,255,255,0.15)",
+            background: geplaatst ? "rgba(34,197,94,0.2)" : "rgba(255,255,255,0.08)",
+            border: geplaatst ? "1px solid rgba(34,197,94,0.4)" : "1px solid rgba(255,255,255,0.15)",
             color: "#fff",
             fontWeight: 600,
             fontSize: 13,
             cursor: "pointer",
             fontFamily: "'Outfit', sans-serif",
-            transition: "transform 0.2s",
+            transition: "all 0.2s",
           }}
           onMouseOver={(e) =>
             ((e.target as HTMLElement).style.transform = "scale(1.03)")
@@ -173,7 +188,7 @@ export default function ResultCard({
             ((e.target as HTMLElement).style.transform = "scale(1)")
           }
         >
-          🔗 Plaats op Marktplaats
+          {geplaatst ? "✓ Tekst gekopieerd!" : "🔗 Plaats op Marktplaats"}
         </button>
       </div>
     </div>
