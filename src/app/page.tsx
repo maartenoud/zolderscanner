@@ -210,6 +210,23 @@ export default function ZolderScanner() {
               </p>
             </div>
 
+            {/* Scan teller banner */}
+            <div style={{ background: t.bgCard, border: `1px solid ${t.border}`, borderRadius: 14, padding: "12px 20px", marginBottom: 24, display: "flex", alignItems: "center", justifyContent: "space-between", boxShadow: t.shadow, flexWrap: "wrap", gap: 10 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <div style={{ display: "flex", gap: 5 }}>
+                  {[1,2,3].map((i) => (
+                    <div key={i} style={{ width: 10, height: 10, borderRadius: "50%", background: i <= 2 ? t.green : t.border }} />
+                  ))}
+                </div>
+                <span style={{ fontSize: 13, color: t.textSecondary, fontFamily: "'DM Mono', monospace" }}>
+                  <strong style={{ color: t.textPrimary }}>2 van 3</strong> gratis scans gebruikt
+                </span>
+              </div>
+              <button style={{ background: t.gradient, border: "none", borderRadius: 8, padding: "6px 14px", color: "#fff", fontWeight: 600, fontSize: 12, cursor: "pointer", fontFamily: "'Outfit', sans-serif", boxShadow: "0 2px 8px rgba(34,197,94,0.2)" }}>
+                ⚡ Upgrade naar Pro — €0,79/mnd
+              </button>
+            </div>
+
             {/* AI Vision badge */}
             <div style={{ display: "flex", justifyContent: "center", marginBottom: 36 }}>
               <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: t.greenBg, border: `1px solid ${t.greenBorder}`, borderRadius: 100, padding: "8px 20px" }}>
@@ -410,7 +427,85 @@ export default function ZolderScanner() {
           </div>
         )}
 
-        <footer style={{ textAlign: "center", marginTop: 80, paddingBottom: 32, fontSize: 12, color: t.textMuted, fontFamily: "'DM Mono', monospace" }}>
+        {/* ═══ PRIJZEN ═══ */}
+        <div style={{ marginTop: 80, marginBottom: 40 }}>
+          <div style={{ textAlign: "center", marginBottom: 32 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, color: t.green, textTransform: "uppercase", fontFamily: "'DM Mono', monospace", marginBottom: 10 }}>
+              Abonnement
+            </div>
+            <h2 style={{ fontSize: "clamp(22px,4vw,32px)", fontWeight: 800, color: t.textPrimary, margin: 0, letterSpacing: -0.5 }}>
+              Kies je plan
+            </h2>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 16 }}>
+
+            {/* Gratis */}
+            <div style={{ background: t.bgCard, border: `1px solid ${t.border}`, borderRadius: 20, padding: 28, boxShadow: t.shadow }}>
+              <div style={{ fontSize: 13, fontWeight: 600, color: t.textMuted, textTransform: "uppercase", letterSpacing: 1.5, fontFamily: "'DM Mono', monospace", marginBottom: 12 }}>Gratis</div>
+              <div style={{ fontSize: 40, fontWeight: 800, color: t.textPrimary, marginBottom: 4 }}>€0</div>
+              <div style={{ fontSize: 13, color: t.textMuted, marginBottom: 24 }}>Voor altijd gratis</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
+                {[
+                  { ok: true,  tekst: "3 scans per maand" },
+                  { ok: true,  tekst: "1 foto per scan" },
+                  { ok: true,  tekst: "Alle 6 categorieën" },
+                  { ok: false, tekst: "Meerdere foto's" },
+                  { ok: false, tekst: "Verfijn-functie" },
+                  { ok: false, tekst: "Onbeperkt scans" },
+                ].map((r, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: r.ok ? t.textSecondary : t.textMuted }}>
+                    <span style={{ fontSize: 16 }}>{r.ok ? "✅" : "❌"}</span>
+                    {r.tekst}
+                  </div>
+                ))}
+              </div>
+              <button disabled style={{ width: "100%", padding: "12px 0", borderRadius: 12, background: t.bgInput, border: `1px solid ${t.border}`, color: t.textMuted, fontWeight: 600, fontSize: 14, cursor: "default", fontFamily: "'Outfit', sans-serif" }}>
+                Huidig plan
+              </button>
+            </div>
+
+            {/* Pro */}
+            <div style={{ background: t.bgCard, border: `2px solid ${t.green}`, borderRadius: 20, padding: 28, position: "relative", boxShadow: `0 4px 24px rgba(34,197,94,0.12)` }}>
+              <div style={{ position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)", background: t.gradient, borderRadius: 100, padding: "4px 16px", fontSize: 11, fontWeight: 700, color: "#fff", letterSpacing: 1, textTransform: "uppercase", fontFamily: "'DM Mono', monospace", whiteSpace: "nowrap" }}>
+                ⚡ Aanbevolen
+              </div>
+              <div style={{ fontSize: 13, fontWeight: 600, color: t.green, textTransform: "uppercase", letterSpacing: 1.5, fontFamily: "'DM Mono', monospace", marginBottom: 12 }}>Pro</div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 4 }}>
+                <span style={{ fontSize: 40, fontWeight: 800, color: t.textPrimary }}>€0,79</span>
+                <span style={{ fontSize: 14, color: t.textMuted }}>/maand</span>
+              </div>
+              <div style={{ fontSize: 13, color: t.textMuted, marginBottom: 24 }}>Opzegbaar per maand</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
+                {[
+                  "Onbeperkt scans",
+                  "Tot 4 foto's per scan",
+                  "Alle 6 categorieën",
+                  "Verfijn-functie",
+                  "Alle verkoopplatforms",
+                  "Nieuwe functies als eerste",
+                ].map((r, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: t.textSecondary }}>
+                    <span style={{ fontSize: 16 }}>✅</span>
+                    {r}
+                  </div>
+                ))}
+              </div>
+              <button style={{ width: "100%", padding: "12px 0", borderRadius: 12, background: t.gradient, border: "none", color: "#fff", fontWeight: 700, fontSize: 14, cursor: "pointer", fontFamily: "'Outfit', sans-serif", boxShadow: "0 4px 16px rgba(34,197,94,0.25)" }}
+                onMouseOver={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.9")}
+                onMouseOut={(e)  => ((e.currentTarget as HTMLElement).style.opacity = "1")}
+              >
+                Start Pro voor €0,79/maand
+              </button>
+              <div style={{ textAlign: "center", marginTop: 10, fontSize: 12, color: t.textMuted }}>
+                Geen verplichtingen · Direct opzegbaar
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <footer style={{ textAlign: "center", paddingBottom: 32, fontSize: 12, color: t.textMuted, fontFamily: "'DM Mono', monospace" }}>
           ZolderScanner · Gemaakt met AI
         </footer>
       </div>
