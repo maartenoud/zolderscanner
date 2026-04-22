@@ -32,7 +32,7 @@ export default function ResultCard({
     await navigator.clipboard?.writeText(text);
     setGeplaatst(true);
     setTimeout(() => setGeplaatst(false), 3000);
-    window.open("https://www.marktplaats.nl/plaatsen", "_blank");
+    window.open("https://www.marktplaats.nl/advertentie/plaatsen.html", "_blank");
   };
 
   useEffect(() => {
